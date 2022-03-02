@@ -1,4 +1,5 @@
 require './corrector'
+require './rental'
 
 class Person
   attr_accessor :name, :age
@@ -21,8 +22,8 @@ class Person
     @name = @corrector.correct_name(@name)
   end
 
-  def add_rental(rental)
-    @rentals << rental
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   private
