@@ -2,9 +2,6 @@ require './corrector'
 require './rental'
 
 class Person
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
-
   def initialize(age, name = 'unknown', parent_permission: true)
     @id = Random.rand(1..100)
     @name = name
@@ -13,6 +10,9 @@ class Person
     @corrector = Corrector.new
     @rentals = []
   end
+
+  attr_accessor :name, :age
+  attr_reader :id, :rentals
 
   def can_use_service
     of_age || @parent_permission
